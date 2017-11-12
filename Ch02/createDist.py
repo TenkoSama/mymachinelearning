@@ -60,6 +60,7 @@ type2 = ax.scatter([-10], [-15], s=30, c='green')
 type3 = ax.scatter([-10], [-20], s=50, c='blue')
 ax.legend([type1, type2, type3], ["Class 1", "Class 2", "Class 3"], loc=2)
 #ax.axis([-5000,100000,-2,25])
+#axis settings
 plt.xlabel('Frequent Flyier Miles Earned Per Year')
 plt.ylabel('Percentage of Body Covered By Tatoos')
 plt.show()
