@@ -29,8 +29,9 @@ def classify0(inX,dataSet,labels,k):
     distances = sqDistances**0.5
     sortedDistIndicies = distances.argsort()
     # argsort()函数是将distances中的元素从小到大排列，
-    # 提取其对应的index(索引)，
-    # 然后输出到sortedDistIndicies
+    # 提取其对应的index(索引)，即顺序号
+    
+    # 然后赋值到sortedDistIndicies
     classCount = {}
     # 选择距离最小的K个点
     for i in range(k):
@@ -56,3 +57,21 @@ def file2matrix(filename):
         classLabelVector.append(int(listFromLine[-1]))
         index += 1
     return returnMat,classLabelVector
+
+def autoNorm(dataSet):
+    minVals = dataSet.min(0)
+    maxVals = dataSet.max(0)
+    ranges = maxVals - minVals
+    normDataSet = zeros(shape(dataSet))
+    m = dataSet.shape[0]
+    normDataSet = dataSet - tile(minVals, (m,1))
+    # the NumPy tile() function 
+    #tile(originData,RepeatSize)
+    # to create a matrix the same size as our input matrix 
+    #and filled with copies of minVals
+    normDataSet = normDataSet/tile(ranges, (m,1)) #element-wise division
+    #In other numeric software packages, 
+    # the / operator can be used for matrix division, 
+    # but in NumPy you need to use linalg.solve(matA,matB) for matrix division.
+    return normDataSet, ranges, minVals
+

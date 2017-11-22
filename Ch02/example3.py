@@ -2,7 +2,7 @@
 
 from numpy import array
 import kNN
-datingDataMat,datingLabels = kNN.file2matrix('E:\VSCode\mymachinelearning\Ch02\datingTestSet2.txt') 
+datingDataMat,datingLabels = kNN.file2matrix('datingTestSet2.txt') 
 #写完整路径可以F5运行，不完整时只能用命令行python example2.py运行
 import matplotlib
 import matplotlib.pyplot as plt
